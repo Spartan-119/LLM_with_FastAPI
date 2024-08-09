@@ -15,6 +15,6 @@ asyncpg==0.29.0  # https://magicstack.github.io/asyncpg/current/
 pyjwt==2.6.0  # https://pyjwt.readthedocs.io/en/stable/
 python-dotenv==1.0.1  # https://github.com/theskumar/python-dotenv
 passlib[bcrypt]==1.7.4  # https://passlib.readthedocs.io/en/stable/
-bcrypt==4.0.1  # https://github.com/pyca/bcrypt/
+bcrypt==4.2.0  # https://github.com/pyca/bcrypt/
 greenlet==3.0.3  # https://greenlet.readthedocs.io/en/latest/
 beautifulsoup4==4.12.3  # https://www.crummy.com/software/BeautifulSoup/
