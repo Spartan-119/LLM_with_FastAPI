@@ -10,7 +10,7 @@ sqlalchemy==2.0.31  # https://www.sqlalchemy.org/
 alembic==1.13.1  # https://alembic.sqlalchemy.org/en/latest/
 python-dotenv==1.0.1  # https://github.com/theskumar/python-dotenv
 pre-commit==3.7.1  # https://pre-commit.com/
-python-json-logger==2.0.4  # https://github.com/madzak/python-json-logger
+python-json-logger==2.0.7  # https://github.com/madzak/python-json-logger
 asyncpg==0.29.0  # https://magicstack.github.io/asyncpg/current/
 pyjwt==2.6.0  # https://pyjwt.readthedocs.io/en/stable/
 python-dotenv==1.0.1  # https://github.com/theskumar/python-dotenv
