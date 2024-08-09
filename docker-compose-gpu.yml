@@ -1,0 +1,19 @@
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+
+  app:
+    environment:
+      - OLLAMA_USE_GPU=true
+
+  celery_worker:
+    environment:
+      - OLLAMA_USE_GPU=true

@@ -1,0 +1,64 @@
+x-common-settings: &common-settings
+  restart: always
+  networks:
+    - llm-hub
+  env_file:
+    - .env
+
+services:
+  app: &app
+    <<: *common-settings
+    build: .
+    ports:
+      - "8010:8000"
+    depends_on:
+      - ollama
+      - redis
+      - db
+    volumes:
+      - ./alembic:/code/alembic
+      - ./logs:/code/logs
+
+  ollama:
+    <<: *common-settings
+    image: ollama/ollama:latest
+    ports:
+      - "11535:11434"
+    volumes:
+      - ./llms:/llms
+      - ollama_data:/root/.ollama
+      - ./logs:/code/logs
+
+  db:
+    <<: *common-settings
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    <<: *common-settings
+    image: redis:alpine
+
+  celery_worker:
+    <<: *app
+    ports: []
+    command: celery -A app.core.tasks worker --loglevel=info
+
+  pgadmin:
+    <<: *common-settings
+    image: dpage/pgadmin4
+    ports:
+      - "5059:80"
+    depends_on:
+      - db
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  ollama_data:
+  postgres_data:
+  pgadmin_data:
+
+networks:
+  llm-hub:
+    driver: bridge
