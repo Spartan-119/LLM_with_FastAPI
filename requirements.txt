@@ -1,5 +1,5 @@
 fastapi==0.111.0  # https://fastapi.tiangolo.com/
-uvicorn==0.30.1  # https://www.uvicorn.org/
+uvicorn==0.30.5  # https://www.uvicorn.org/
 httpx==0.27.0  # https://www.python-httpx.org/
 celery==5.4.0  # https://docs.celeryq.dev/en/stable/getting-started/introduction.html
 redis==5.0.6  # https://redis.io/
